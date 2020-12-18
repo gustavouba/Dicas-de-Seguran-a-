@@ -9,7 +9,7 @@ def add_comments(content):
   
   Correção do Codigo 
   
-  Traduzindo: a documentação nos adverte a nunca, NUNCA usar concatenação string (+) ou interpolação de string (%) para passar uma variável para uma string SQL.
+  Traduzindo: a documentação dopsycopg2 nos adverte a nunca, NUNCA usar concatenação string (+) ou interpolação de string (%) para passar uma variável para uma string SQL.
   
   def add_comments(content):  
   conn = psycopg2.connect("dbname=yourdatabase")
