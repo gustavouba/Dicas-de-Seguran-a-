@@ -1,0 +1,20 @@
+Codigo com erro de segurança em Python 
+
+def add_comments(content):  
+  conn = psycopg2.connect("dbname=yourdatabase")
+  cursor = conn.cursor()
+  cursor.execute("insert into comments values ('$s')" % content)
+  conn.commit()
+  conn.close()
+  
+  Correção do Codigo 
+  
+  Traduzindo: a documentação nos adverte a nunca, NUNCA usar concatenação string (+) ou interpolação de string (%) para passar uma variável para uma string SQL.
+  
+  def add_comments(content):  
+  conn = psycopg2.connect("dbname=yourdatabase")
+  cursor = conn.cursor()
+  cursor.execute("insert into comments values ($s)", (content,))
+  conn.commit()
+  conn.close()
+  
